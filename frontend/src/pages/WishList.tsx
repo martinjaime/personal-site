@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 interface WishListItem {
   description: string;
@@ -52,6 +53,10 @@ const wishListItems: WishListItem[] = [
 
 const WishList: React.FC = () => {
   return (
+    <>
+    <Helmet>
+      <title>Martin's Wish List</title>
+    </Helmet>
     <div className="flex flex-col items-center h-full text-white p-4">
       <h1 className="py-10">
         Hello! Here is my wishlist. Your interest is much appreciated :)
@@ -67,6 +72,7 @@ const WishList: React.FC = () => {
         ))}
       </ul>
     </div>
+    </>
   )
 }
 
