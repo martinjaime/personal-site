@@ -9,11 +9,6 @@ interface WishListItem {
 
 const wishListItems: WishListItem[] = [
   {
-    description: "Vivo Primus Lite III",
-    details: "Size EU 40, Color Obsidian",
-    url: "https://www.vivobarefoot.com/us/primus-lite-iii-mens-ss22?colour=Obsidian",
-  },
-  {
     description: "Uplift Desk PC holder",
     details: "Need a Track Spacer accessory as well",
     url: "https://www.upliftdesk.com/cpu-holder-by-uplift-desk/",
@@ -25,19 +20,11 @@ const wishListItems: WishListItem[] = [
     description: "A nice card :)"
   },
   {
-    description: "v bucks 😬"
-  },
-  {
     description: "Take me out to eat 1 on 1"
   },
   {
     description: "A cooking class voucher",
     details: "don't ask me how to get this, I have no idea"
-  },
-  {
-    description: "A rug tufting session for you and me",
-    details: "But only if they let me make a kirby rug",
-    url: "https://www.vibesdiystudio.com/book",
   },
   {
     description: "Voucher for a massage or float",
@@ -58,9 +45,10 @@ const WishList: React.FC = () => {
       <title>Martin's Wish List</title>
     </Helmet>
     <div className="flex flex-col items-center h-full text-white p-4">
-      <h1 className="py-10">
+      <h1 className="pt-10 pb-5">
         Hello! Here is my wishlist. Your interest is much appreciated :)
       </h1>
+      <p>Last updated on Nov 24, 2024</p>
       <ul className="space-y-4 px-4">
         {wishListItems.map(item => (
           <li key={item.description}>
