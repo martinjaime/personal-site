@@ -14,6 +14,11 @@ const wishListItems: WishListItem[] = [
     url: "https://www.upliftdesk.com/cpu-holder-by-uplift-desk/",
   },
   {
+    description: "Voyager Keyboard",
+    details: "Black colored keycaps, blank (no print) keycaps, Kaihl Choc Brown keyswitches",
+    url: "https://www.zsa.io/voyager/buy",
+  },
+  {
     description: 'A large "Mme Kupka among Verticals" print'
   },
   {
@@ -31,7 +36,7 @@ const wishListItems: WishListItem[] = [
   },
   {
     description: "Amazon Wishlist",
-    url: "https://www.amazon.com/hz/wishlist/ls/RO0JJLMLD38Y?ref_=wl_share",
+    url: "https://www.amazon.com/hz/wishlist/ls/RO0JJLMLD38Y",
   },
   {
     description: "Not things that will sit and collect dust (stuffed animals, desk decoration, etc.)",
@@ -52,7 +57,7 @@ const WishList: React.FC = () => {
       <ul className="space-y-4 px-4">
         {wishListItems.map(item => (
           <li key={item.description}>
-            <a className={`font-bold ${item.url && "hover:text-blue-700"}`} href={item.url}>
+            <a className={`font-bold ${item.url ? "text-blue-400 hover:underline" : ""}`} href={item.url}>
               {item.description}
             </a>
             {item.details && <p className="font-light">{item.details}</p>}
