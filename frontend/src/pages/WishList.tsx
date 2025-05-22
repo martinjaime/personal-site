@@ -45,7 +45,7 @@ const WishList: React.FC = () => {
       <h1 className="pt-10 pb-5">
         Hello! Here is my wishlist. Your interest is much appreciated :)
       </h1>
-      <p>Last updated on Nov 24, 2024</p>
+      <p>Last updated on May 21, 2025</p>
       <ul className="space-y-4 px-4">
         {wishListItems.map(item => (
           <li key={item.description}>
