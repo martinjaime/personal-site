@@ -9,17 +9,9 @@ interface WishListItem {
 
 const wishListItems: WishListItem[] = [
   {
-    description: "Uplift Desk PC holder",
-    details: "Need a Track Spacer accessory as well",
-    url: "https://www.upliftdesk.com/cpu-holder-by-uplift-desk/",
-  },
-  {
     description: "Voyager Keyboard",
     details: "Black colored keycaps, blank (no print) keycaps, Kaihl Choc Brown keyswitches",
     url: "https://www.zsa.io/voyager/buy",
-  },
-  {
-    description: 'A large "Mme Kupka among Verticals" print'
   },
   {
     description: "A nice card :)"
