@@ -16,7 +16,7 @@ export default function Nav() {
             <NavigationMenuLink href="/projects">Projects</NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink href="/contact">Contact</NavigationMenuLink>
+            <NavigationMenuLink href="/contact">Say hi</NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
