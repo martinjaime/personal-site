@@ -50,6 +50,14 @@
   filter: invert(0);
 }
 
+.post-content {
+  @apply text-sm font-light text-muted-foreground leading-loose max-w-[80ch];
+
+  p {
+    @apply mb-4;
+  }
+}
+
 :root {
     --background: oklch(0.9735 0.0129 17.38);
     --foreground: oklch(0.22 0 0);

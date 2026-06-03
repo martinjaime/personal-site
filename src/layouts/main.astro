@@ -2,6 +2,12 @@
 import "@/styles/global.css"
 import Nav from "@/components/Nav"
 import Footer from "@/components/footer.astro"
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -9,13 +15,13 @@ import Footer from "@/components/footer.astro"
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Martin Jaime</title>
+    <title>Martin Jaime{title ? `: ${title}` : ""}</title>
   </head>
   <body class="min-h-screen flex flex-col">
     <Nav client:load />
-    <dev class="flex-1 w-full">
+    <main class="flex-1 w-full mx-auto max-w-xl px-6 pt-10">
       <slot />
-    </dev>
+    </main>
     <Footer />
   </body>
 </html>

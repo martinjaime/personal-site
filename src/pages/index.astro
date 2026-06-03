@@ -34,80 +34,75 @@ const projects = [
 ---
 
 <Layout>
-  <main class="mx-auto max-w-xl px-6 pt-10">
+  <h1 class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-1 mb-6 text-4xl font-bold tracking-tight leading-none">
+    Martin <span class="text-primary">Jaime</span>
+  </h1>
 
-    <h1 class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-1 mb-6 text-4xl font-bold tracking-tight leading-none">
-      Martin <span class="text-primary">Jaime</span>
-    </h1>
+  <HorizontalRuler />
 
-    <HorizontalRuler />
+  <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-3 mb-8" aria-label="Introduction">
+    <p class="mb-3 text-sm font-medium text-primary">
+      Fullstack Software Engineer
+    </p>
+    <p class="text-sm font-light text-muted-foreground leading-loose max-w-[80ch]">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt
+      tempus magna, nec hendrerit sem scelerisque sit amet. Mauris tincidunt
+      metus nec lorem bibendum accumsan. Etiam faucibus faucibus tincidunt.
+      Vestibulum viverra eu magna sit amet feugiat.
+    </p>
+  </section>
 
-    <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-3 mb-8" aria-label="Introduction">
-      <p class="mb-3 text-sm font-medium text-primary">
-        Fullstack Software Engineer
-      </p>
-      <div>
-        <p class="text-sm font-light text-muted-foreground leading-loose max-w-[80ch]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt
-          tempus magna, nec hendrerit sem scelerisque sit amet. Mauris tincidunt
-          metus nec lorem bibendum accumsan. Etiam faucibus faucibus tincidunt.
-          Vestibulum viverra eu magna sit amet feugiat.
-        </p>
-      </div>
-    </section>
+  <!-- Core technologies section -->
+  <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-4 mb-8" aria-label="Core technologies">
+    <p class="mb-2 text-[11px] text-muted-foreground tracking-widest text-primary">core stack</p>
+    <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0" role="list">
+      {coreStack.map( item => (
+        <li class="text-xs opacity-60 hover:opacity-100 transition-opacity duration-150">{item}</li>
+        ))}
+    </ul>
+  </section>
 
-    <!-- Core technologies section -->
-    <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-4 mb-8" aria-label="Core technologies">
-      <p class="mb-2 text-[11px] text-muted-foreground tracking-widest text-primary">core stack</p>
+  <!-- Interests section -->
+  {interests.length > 0 && (
+    <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-4 mb-8" aria-label="Interests">
+      <p class="mb-2 text-[11px] text-muted-foreground tracking-widest text-primary">interests</p>
       <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0" role="list">
-        {coreStack.map( item => (
+        {interests.map( item => (
           <li class="text-xs opacity-60 hover:opacity-100 transition-opacity duration-150">{item}</li>
-         ))}
+        ))}
       </ul>
     </section>
+  )}
 
-    <!-- Interests section -->
-    {interests.length > 0 && (
-      <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-4 mb-8" aria-label="Interests">
-        <p class="mb-2 text-[11px] text-muted-foreground tracking-widest text-primary">interests</p>
-        <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0" role="list">
-          {interests.map( item => (
-            <li class="text-xs opacity-60 hover:opacity-100 transition-opacity duration-150">{item}</li>
-          ))}
-        </ul>
-      </section>
-    )}
+  <HorizontalRuler />
 
-    <HorizontalRuler />
+  <!-- Projects section -->
+  <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-5 mb-8" aria-label="Projects">
+    <p class="mb-4 text-[11px] text-muted-foreground tracking-widest text-primary">projects</p>
+    <!-- The "group" class on the container enables the sibling fade effect -->
+    <!-- https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-the-descendants-of-a-group -->
+    <div class="flex flex-col group/feed">
+      {projects.map((project) => (
+        <a
+          href={project.href}
+          class="group/row flex items-start py-4 border-b border-border/40 last:border-0 no-underline transition-all duration-200 hover:border-primary/40 group-hover/feed:opacity-40 hover:!opacity-100"
+        >
+          <span class="font-mono text-xs text-muted-foreground w-16 pt-0.5 shrink-0">
+            {project.year}
+          </span>
 
-    <!-- Projects section -->
-    <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-5 mb-8" aria-label="Projects">
-      <p class="mb-4 text-[11px] text-muted-foreground tracking-widest text-primary">projects</p>
-      <!-- The "group" class on the container enables the sibling fade effect -->
-      <!-- https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-the-descendants-of-a-group -->
-      <div class="flex flex-col group/feed">
-        {projects.map((project) => (
-          <a
-            href={project.href}
-            class="group/row flex items-start py-4 border-b border-border/40 last:border-0 no-underline transition-all duration-200 hover:border-primary/40 group-hover/feed:opacity-40 hover:!opacity-100"
-          >
-            <span class="font-mono text-xs text-muted-foreground w-16 pt-0.5 shrink-0">
-              {project.year}
+          <div class="flex-1 min-w-0 pr-4">
+            <span class="text-sm font-medium text-foreground transition-colors duration-150 group-hover/row:text-primary">
+              {project.title}
             </span>
+            <p class="text-xs text-muted-foreground font-light mt-1 leading-relaxed">
+              {project.summary}
+            </p>
+          </div>
 
-            <div class="flex-1 min-w-0 pr-4">
-              <span class="text-sm font-medium text-foreground transition-colors duration-150 group-hover/row:text-primary">
-                {project.title}
-              </span>
-              <p class="text-xs text-muted-foreground font-light mt-1 leading-relaxed">
-                {project.summary}
-              </p>
-            </div>
-
-            <ArrowUpRight size={16} className="text-muted-foreground opacity-40 duration-150 group-hover/row:translate-x-1 group-hover/row:-translate-y-1 group-hover/row:opacity-100 group-hover/row:text-primary" />
-          </a>
-        ))}
-      </div>
-    </section>
-  </main>
+          <ArrowUpRight size={16} className="text-muted-foreground opacity-40 duration-150 group-hover/row:translate-x-1 group-hover/row:-translate-y-1 group-hover/row:opacity-100 group-hover/row:text-primary" />
+        </a>
+      ))}
+    </div>
+  </section>
 </Layout>
