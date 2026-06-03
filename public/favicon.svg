@@ -1,3 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
-  <path fill="#000" d="M22.25 4h-8.5a1 1 0 0 0-.96.73l-5.54 19.4a.5.5 0 0 0 .62.62l5.05-1.44a1 1 0 0 0 .67-.55L18 14l4.41 8.76a1 1 0 0 0 .67.55l5.05 1.44a.5.5 0 0 0 .62-.62l-5.54-19.4a1 1 0 0 0-.96-.73Z"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="150mm"
+   height="110.98252mm"
+   viewBox="0 0 150 110.98252"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="woodpecker-up.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.68178201"
+     inkscape:cx="223.67853"
+     inkscape:cy="365.95275"
+     inkscape:window-width="1470"
+     inkscape:window-height="890"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer6" /><defs
+     id="defs1"><linearGradient
+       id="swatch5"
+       inkscape:swatch="solid"><stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop6" /></linearGradient><linearGradient
+       id="swatch1"
+       inkscape:swatch="solid"><stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop1" /></linearGradient></defs><g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="trace"
+     style="display:inline"
+     transform="matrix(13.419902,0,0,13.419902,-1306.222,-1810.5969)"><path
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.279;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.4;stroke-dasharray:none;paint-order:normal"
+       d="m 101.78336,139.65384 -0.58919,-0.70703 1.15629,-0.4198 -1.17839,0.39034 -0.88379,-0.70703 2.18002,-0.48609 -2.20948,0.44926 -0.714398,-0.87642 2.894418,-0.12521 -2.938606,0.0663 -0.670208,-0.7365 c 0,0 1.657104,-0.0884 1.833864,0.0295 0.17676,0.11784 -0.0663,-0.081 -0.0663,-0.081 l -1.83387,-0.0221 -0.670209,-0.89115 c 0,0 1.878058,-0.26514 2.585089,-0.0589 0.70704,0.20622 1.92225,0.62602 1.92225,0.62602 0,0 1.03109,0.70703 1.38461,1.14156 0.35351,0.43453 0.50255,0.51865 0.50255,0.51865 l -1.10495,-1.24327 0.43523,-0.0976 -0.49527,0.06 -0.49526,-1.32071 c 0,0 0.73539,-0.24763 1.33572,0.03 0.60032,0.27765 1.08058,1.89852 1.08058,1.89852 l 0.0825,0.16509"
+       id="path21"
+       inkscape:label="wing path"
+       sodipodi:insensitive="true" /><path
+       id="path19"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.279;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.4;stroke-dasharray:none;paint-order:normal"
+       inkscape:label="bird path"
+       d="m 106.03177,136.66349 c -0.023,-6.2e-4 -0.0474,-7e-5 -0.0734,0.002 -0.20817,0.0171 -0.36535,0.0315 -0.36535,0.0315 l 0.31522,0.42788 -0.44183,0.10542 -0.89193,0.56173 -0.71934,0.55655 c 0,0 -0.72578,0.60055 -0.99477,1.00717 l -0.83044,0.62581 -4.505153,1.33738 c 0.05439,0.004 0.142716,0.0691 0.212906,0.39998 0.109704,0.51717 -0.263549,0.58653 -0.263549,0.58653 0,0 0.723201,0.15864 0.51573,0.70641 -0.144754,0.38219 3.391526,-2.31665 3.391526,-2.31665 l -3.322796,1.33222 3.193086,-1.50327 -0.12609,-0.13074 0.25115,-0.047 0.0186,0.3514 0.76481,-0.1633 0.76791,0.11008 h 0.28216 c 0,0 0.56438,-0.12564 0.98753,-0.40773 0.42314,-0.2821 1.45747,-1.3161 1.58285,-1.70791 0.12538,-0.3918 0.72089,-0.11007 0.72089,-0.11007 0,0 0.46979,-0.0467 0.70487,-0.26613 0.23508,-0.21941 0.41289,-0.18655 0.41289,-0.18655 l 0.75293,0.13952 c 0,0 0.0395,-0.31371 -0.36536,-0.4563 -0.40494,-0.14258 -0.70125,-0.20516 -0.70125,-0.20516 0,0 -0.22558,-0.39626 -0.37672,-0.42478 -0.14453,-0.0273 -0.45046,-0.0835 -0.47697,-0.0884 l -0.17157,-0.19999 c 0,0 -0.0873,-0.0633 -0.24856,-0.0677 z m -8.506973,4.65553 c -0.02679,-0.002 -0.04538,0.0112 -0.04961,0.0145 z m 8.928653,-4.38578 0.50126,0.28732 -0.39222,-0.0656 -0.0584,0.24649 0.0243,-0.38085 z m -1.27744,0.25632 -0.82062,0.51831 z m -0.97203,3.2458 -0.56793,0.23667 z" /></g></svg>
