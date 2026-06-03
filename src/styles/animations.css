@@ -1,0 +1,8 @@
+/* Stagger delays */
+.delay-0 { animation-delay: 0ms; }
+.delay-1 { animation-delay: 80ms; }
+.delay-2 { animation-delay: 160ms; }
+.delay-3 { animation-delay: 240ms; }
+.delay-4 { animation-delay: 340ms; }
+.delay-5 { animation-delay: 460ms; }
+.delay-6 { animation-delay: 600ms; }

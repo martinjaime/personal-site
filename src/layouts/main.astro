@@ -1,5 +1,7 @@
 ---
 import "@/styles/global.css"
+import Nav from "@/components/Nav"
+import Footer from "@/components/footer.astro"
 ---
 
 <html lang="en">
@@ -7,9 +9,13 @@ import "@/styles/global.css"
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Astro App</title>
+    <title>Martin Jaime</title>
   </head>
-  <body>
-    <slot />
+  <body class="min-h-screen flex flex-col">
+    <Nav client:load />
+    <dev class="flex-1 w-full">
+      <slot />
+    </dev>
+    <Footer />
   </body>
 </html>

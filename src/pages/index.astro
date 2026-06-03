@@ -1,17 +1,62 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
+import "@/styles/animations.css"
+import HorizontalRuler from "@/components/HorizontalRuler.astro"
+
+const coreStack = [
+  "Scala",
+  "TypeScript",
+  "PostgreSQL",
+  "React",
+  "Node",
+]
+
+const interests: string[] = []
 ---
 
 <Layout>
-  <div class="flex min-h-svh p-6">
-    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
+  <main class="mx-auto max-w-xl px-6 pt-10">
+
+    <h1 class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-1 mb-6 text-4xl font-bold tracking-tight leading-none">
+      Martin <span class="text-primary">Jaime</span>
+    </h1>
+
+    <HorizontalRuler />
+
+    <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-3 mb-8" aria-label="Introduction">
+      <p class="mb-3 text-sm font-medium text-primary">
+        Fullstack Software Engineer
+      </p>
       <div>
-        <h1 class="font-medium">Project ready!</h1>
-        <p>You may now add components and start building.</p>
-        <p>We've already added the button component for you.</p>
-        <Button client:load className="mt-2">Button</Button>
+        <p class="text-sm font-light text-muted-foreground leading-loose max-w-[80ch]">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt
+          tempus magna, nec hendrerit sem scelerisque sit amet. Mauris tincidunt
+          metus nec lorem bibendum accumsan. Etiam faucibus faucibus tincidunt.
+          Vestibulum viverra eu magna sit amet feugiat.
+        </p>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-4 mb-8" aria-label="Core technologies">
+      <p class="mb-2 text-[11px] text-muted-foreground tracking-widest">core stack</p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0" role="list">
+        {coreStack.map( item => (
+          <li class="text-xs opacity-60 hover:opacity-100 transition-opacity duration-150">{item}</li>
+         ))}
+      </ul>
+    </section>
+
+    {interests.length > 0 && (
+      <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-4 mb-8" aria-label="Interests">
+        <p class="mb-2 text-[11px] text-muted-foreground tracking-widest">interests</p>
+        <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0" role="list">
+          {interests.map( item => (
+            <li class="text-xs opacity-60 hover:opacity-100 transition-opacity duration-150">{item}</li>
+         ))}
+      </ul>
+    </section>
+    )}
+
+    <HorizontalRuler />
+  </main>
 </Layout>
