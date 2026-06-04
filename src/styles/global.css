@@ -53,6 +53,12 @@
 .post-content {
   @apply text-sm font-light text-muted-foreground leading-loose max-w-[80ch];
 
+  h2 {
+    @apply text-3xl mb-4;
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
   p {
     @apply mb-4;
   }
