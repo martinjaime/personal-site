@@ -3,6 +3,7 @@ import Layout from "@/layouts/main.astro"
 import "@/styles/animations.css"
 import HorizontalRuler from "@/components/HorizontalRuler.astro"
 import { ArrowUpRight } from "lucide-react"
+import type { MarkdownLayoutProps } from "astro";
 
 const coreStack = [
   "Scala",
@@ -17,8 +18,10 @@ const interests: string[] = [
   // "Go",
 ];
 
-const projects_ = Object.values(import.meta.glob("../pages/projects/*.mdx", { eager: true })) as Project[];
-const projects = projects_.sort((a, b) => b.frontmatter.year.localeCompare(a.frontmatter.year));
+const projects_ = Object.values(import.meta.glob("../pages/projects/*.mdx", { eager: true })) as MarkdownLayoutProps<ProjectFrontmatter>[];
+const projects = projects_
+  .sort((a, b) => b.frontmatter.year.localeCompare(a.frontmatter.year))
+  .filter(project => project.frontmatter.state !== "archived");
 ---
 
 <Layout>

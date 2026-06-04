@@ -2,14 +2,16 @@
 import Layout from "@/layouts/main.astro"
 import type { MarkdownLayoutProps } from "astro";
 
-type Props = MarkdownLayoutProps<{
-  title: string;
-}>;
+type Props = MarkdownLayoutProps<ProjectFrontmatter>;
 const { frontmatter } = Astro.props;
+const isPublished = frontmatter.state === "published";
 ---
 
 <Layout title={frontmatter.title}>
   <div class="post-content">
-    <slot />
+    {!isPublished
+      ? <p class="text-center text-foreground font-bold"> This project abstract is not published.</p>
+      : <slot />
+    }
   </div>
 </Layout>

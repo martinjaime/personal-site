@@ -1,3 +1,4 @@
+import type { MarkdownLayoutProps } from "astro";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -11,7 +12,13 @@ interface NavProps {
   currentPath: string;
 }
 
-const projects = Object.values(import.meta.glob("../pages/projects/*.mdx", { eager: true })) as Project[];
+const projects = Object.values(import.meta.glob("../pages/projects/*.mdx", { eager: true })) as MarkdownLayoutProps<ProjectFrontmatter>[];
+
+const sortProjects = (projects: MarkdownLayoutProps<ProjectFrontmatter>[]) => {
+  return projects
+    .sort((a, b) => b.frontmatter.year.localeCompare(a.frontmatter.year))
+    .filter(project => project.frontmatter.state !== "archived");
+}
 
 const Nav: React.FC<NavProps> = ({ currentPath }) => {
   return (
@@ -27,7 +34,7 @@ const Nav: React.FC<NavProps> = ({ currentPath }) => {
             {/* weirdly enough, this component has a different font weight, so have to manually set it */}
             <NavigationMenuTrigger className="font-normal">Projects</NavigationMenuTrigger>
             <NavigationMenuContent className="absolute z-50 right-0 left-auto min-w-max">
-              {projects.map(project => (
+              {(sortProjects(projects)).map(project => (
                 <NavigationMenuLink href={project.url}>
                   {project.frontmatter.title}
                 </NavigationMenuLink>
