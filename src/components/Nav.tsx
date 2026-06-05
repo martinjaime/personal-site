@@ -35,7 +35,7 @@ const Nav: React.FC<NavProps> = ({ currentPath }) => {
             <NavigationMenuTrigger className="font-normal">Projects</NavigationMenuTrigger>
             <NavigationMenuContent className="absolute z-50 right-0 left-auto min-w-max">
               {(sortProjects(projects)).map(project => (
-                <NavigationMenuLink href={project.url}>
+                <NavigationMenuLink className="border-b border-border/40 last:border-b-0 min-w-5" href={project.url}>
                   {project.frontmatter.title}
                 </NavigationMenuLink>
               ))}
