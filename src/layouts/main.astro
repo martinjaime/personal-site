@@ -20,7 +20,7 @@ const { title } = Astro.props;
   </head>
   <body class="min-h-screen flex flex-col">
     <Nav currentPath={Astro.url.pathname} client:load />
-    <main class="flex-1 w-full mx-auto max-w-xl px-6 pt-10">
+    <main class="flex-1 w-full mx-auto max-w-xl px-6 pt-10 w-full">
       <slot />
     </main>
     <Footer />

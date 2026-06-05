@@ -16,6 +16,7 @@
     "@astrojs/mdx": "^6.0.2",
     "@astrojs/react": "^5.0.7",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@tabler/icons-webfont": "^3.44.0",
     "@tailwindcss/vite": "^4.2.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
