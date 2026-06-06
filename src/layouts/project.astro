@@ -10,7 +10,7 @@ const isPublished = frontmatter.state === "published";
 <Layout title={frontmatter.title}>
   <div class="post-content">
     {!isPublished
-      ? <p class="text-center text-foreground font-bold"> This project abstract is not published.</p>
+      ? <p class="text-center text-foreground font-bold"> This project abstract is not [yet] published.</p>
       : <slot />
     }
   </div>

@@ -41,9 +41,9 @@ const Nav: React.FC<NavProps> = ({ currentPath }) => {
               ))}
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuLink href="/about">About</NavigationMenuLink>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
           {/* <NavigationMenuItem>
             <NavigationMenuLink href="/contact">Say hi</NavigationMenuLink>
           </NavigationMenuItem> */}
