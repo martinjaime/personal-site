@@ -4,10 +4,10 @@ import Nav from "@/components/Nav"
 import Footer from "@/components/footer.astro"
 
 interface Props {
-  title?: string;
+  title?: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <html lang="en">
@@ -15,14 +15,29 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link href="/favicon-dark.svg" rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
-    <link rel="preload" as="image" href="/woodpecker-banner-transparent.png" media="(min-width: 40rem)" />
-    <link rel="preload" as="image" href="/woodpecker-banner-mobile.png" media="(max-width: 39.999rem)" />
+    <link
+      href="/favicon-dark.svg"
+      rel="icon"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/woodpecker-banner-transparent.png"
+      media="(min-width: 40rem)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/woodpecker-banner-mobile.png"
+      media="(max-width: 39.999rem)"
+    />
     <title>Martin Jaime{title ? `: ${title}` : ""}</title>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="flex min-h-screen flex-col">
     <Nav currentPath={Astro.url.pathname} client:load />
-    <main class="flex-1 w-full mx-auto max-w-xl px-6 pt-10 w-full">
+    <main class="mx-auto w-full max-w-xl flex-1 px-6 pt-10">
       <slot />
     </main>
     <Footer />

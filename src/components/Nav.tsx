@@ -1,4 +1,5 @@
-import type { MarkdownLayoutProps } from "astro";
+import type { MarkdownLayoutProps } from "astro"
+import type { ProjectFrontmatter } from "@/lib/types"
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -6,24 +7,29 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
   NavigationMenuContent,
-} from "@/components/ui/navigation-menu";
+} from "@/components/ui/navigation-menu"
 
 interface NavProps {
-  currentPath: string;
+  currentPath: string
 }
 
-const projects = Object.values(import.meta.glob("../pages/projects/*.mdx", { eager: true })) as MarkdownLayoutProps<ProjectFrontmatter>[];
+const projects = Object.values(
+  import.meta.glob("../pages/projects/*.mdx", { eager: true })
+) as MarkdownLayoutProps<ProjectFrontmatter>[]
 
 const sortProjects = (projects: MarkdownLayoutProps<ProjectFrontmatter>[]) => {
   return projects
     .sort((a, b) => b.frontmatter.year.localeCompare(a.frontmatter.year))
-    .filter(project => project.frontmatter.state !== "archived");
+    .filter((project) => project.frontmatter.state !== "archived")
 }
 
 const Nav: React.FC<NavProps> = ({ currentPath }) => {
   return (
     <div className="w-full">
-      <NavigationMenu viewport={false} className="max-w-xl px-6 pt-4 mx-auto flex flex-row justify-end">
+      <NavigationMenu
+        viewport={false}
+        className="mx-auto flex max-w-xl flex-row justify-end px-6 pt-4"
+      >
         <NavigationMenuList>
           {currentPath !== "/" && (
             <NavigationMenuItem>
@@ -32,10 +38,15 @@ const Nav: React.FC<NavProps> = ({ currentPath }) => {
           )}
           <NavigationMenuItem className="relative">
             {/* weirdly enough, this component has a different font weight, so have to manually set it */}
-            <NavigationMenuTrigger className="font-normal">Projects</NavigationMenuTrigger>
-            <NavigationMenuContent className="absolute z-50 right-0 left-auto min-w-max">
-              {(sortProjects(projects)).map(project => (
-                <NavigationMenuLink className="border-b border-border/40 last:border-b-0 min-w-5" href={project.url}>
+            <NavigationMenuTrigger className="font-normal">
+              Projects
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="absolute right-0 left-auto z-50 min-w-max">
+              {sortProjects(projects).map((project) => (
+                <NavigationMenuLink
+                  className="min-w-5 border-b border-border/40 last:border-b-0"
+                  href={project.url}
+                >
                   {project.frontmatter.title}
                 </NavigationMenuLink>
               ))}
@@ -53,4 +64,4 @@ const Nav: React.FC<NavProps> = ({ currentPath }) => {
   )
 }
 
-export default Nav;
+export default Nav

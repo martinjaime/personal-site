@@ -1,15 +1,17 @@
 ---
 import Layout from "@/layouts/main.astro"
-import type { MarkdownLayoutProps } from "astro";
+import type { MarkdownLayoutProps } from "astro"
 
 type Props = MarkdownLayoutProps<{
-  title: string;
-}>;
-const { frontmatter } = Astro.props;
+  title: string
+}>
+const { frontmatter } = Astro.props
 ---
 
 <Layout title={frontmatter.title}>
-  <h1 class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-1 mb-6 text-4xl font-bold tracking-tight leading-none">
+  <h1
+    class="mb-6 animate-in text-4xl leading-none font-bold tracking-tight delay-1 duration-500 fill-mode-both fade-in slide-in-from-bottom-1"
+  >
     {frontmatter.title}
   </h1>
 

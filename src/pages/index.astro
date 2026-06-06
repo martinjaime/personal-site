@@ -3,7 +3,8 @@ import Layout from "@/layouts/main.astro"
 import "@/styles/animations.css"
 import HorizontalRuler from "@/components/HorizontalRuler.astro"
 import { ArrowUpRight } from "lucide-react"
-import type { MarkdownLayoutProps } from "astro";
+import type { MarkdownLayoutProps } from "astro"
+import type { ProjectFrontmatter } from "@/lib/types"
 
 const coreStack = [
   "Scala",
@@ -13,85 +14,119 @@ const coreStack = [
   "PostgreSQL",
   "React",
   "Node",
-  "Kubernetes"
-];
+  "Kubernetes",
+]
 
 const interests: string[] = [
   // "Kubernetes",
   // "Go",
-];
+]
 
-const projects_ = Object.values(import.meta.glob("../pages/projects/*.mdx", { eager: true })) as MarkdownLayoutProps<ProjectFrontmatter>[];
+const projects_ = Object.values(
+  import.meta.glob("../pages/projects/*.mdx", { eager: true })
+) as MarkdownLayoutProps<ProjectFrontmatter>[]
 const projects = projects_
   .sort((a, b) => b.frontmatter.year.localeCompare(a.frontmatter.year))
-  .filter(project => project.frontmatter.state !== "archived");
+  .filter((project) => project.frontmatter.state !== "archived")
 ---
 
 <Layout>
-  <h1 class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-1 mb-6 text-4xl font-bold tracking-tight leading-none">
+  <h1
+    class="mb-6 animate-in text-4xl leading-none font-bold tracking-tight delay-1 duration-500 fill-mode-both fade-in slide-in-from-bottom-1"
+  >
     Martin <span class="text-primary">Jaime</span>
   </h1>
 
   <HorizontalRuler />
 
-  <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-3 mb-8" aria-label="Introduction">
-    <p class="mb-3 text-sm font-medium text-primary">
-      Software Engineer
-    </p>
-    <p class="text-sm font-light text-muted-foreground leading-loose">
-      Backend-leaning software engineer that has been developing systems and APIs since 2018.
+  <section
+    class="mb-8 animate-in delay-3 duration-500 fill-mode-both fade-in slide-in-from-bottom-1"
+    aria-label="Introduction"
+  >
+    <p class="mb-3 text-sm font-medium text-primary">Software Engineer</p>
+    <p class="text-sm leading-loose font-light text-muted-foreground">
+      Backend-leaning software engineer that has been developing systems and
+      APIs since 2018.
     </p>
   </section>
 
   <!-- Core technologies section -->
-  <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-4 mb-8" aria-label="Core technologies">
-    <p class="mb-2 text-xs text-muted-foreground tracking-widest text-primary">core stack</p>
-    <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0" role="list">
-      {coreStack.map( item => (
-        <li class="text-xs opacity-60 transition-opacity duration-150">{item}</li>
-        ))}
+  <section
+    class="mb-8 animate-in delay-4 duration-500 fill-mode-both fade-in slide-in-from-bottom-1"
+    aria-label="Core technologies"
+  >
+    <p class="mb-2 text-xs tracking-widest text-muted-foreground text-primary">
+      core stack
+    </p>
+    <ul class="flex list-none flex-wrap gap-x-5 gap-y-1 p-0" role="list">
+      {
+        coreStack.map((item) => (
+          <li class="text-xs opacity-60 transition-opacity duration-150">
+            {item}
+          </li>
+        ))
+      }
     </ul>
   </section>
 
   <!-- Interests section -->
-  {interests.length > 0 && (
-    <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-4 mb-8" aria-label="Interests">
-      <p class="mb-2 text-xs text-muted-foreground tracking-widest text-primary">interests</p>
-      <ul class="flex flex-wrap gap-x-5 gap-y-1 list-none p-0" role="list">
-        {interests.map( item => (
-          <li class="text-xs opacity-60 transition-opacity duration-150">{item}</li>
-        ))}
-      </ul>
-    </section>
-  )}
+  {
+    interests.length > 0 && (
+      <section
+        class="mb-8 animate-in delay-4 duration-500 fill-mode-both fade-in slide-in-from-bottom-1"
+        aria-label="Interests"
+      >
+        <p class="mb-2 text-xs tracking-widest text-muted-foreground text-primary">
+          interests
+        </p>
+        <ul class="flex list-none flex-wrap gap-x-5 gap-y-1 p-0" role="list">
+          {interests.map((item) => (
+            <li class="text-xs opacity-60 transition-opacity duration-150">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 
   <HorizontalRuler />
 
   <!-- Projects section -->
-  <section class="animate-in fade-in slide-in-from-bottom-1 duration-500 fill-mode-both delay-5 mb-8" aria-label="Projects">
-    <p class="mb-4 text-xs text-muted-foreground tracking-widest text-primary">projects</p>
+  <section
+    class="mb-8 animate-in delay-5 duration-500 fill-mode-both fade-in slide-in-from-bottom-1"
+    aria-label="Projects"
+  >
+    <p class="mb-4 text-xs tracking-widest text-muted-foreground text-primary">
+      projects
+    </p>
     <!-- The "group" class on the container enables the sibling fade effect -->
     <!-- https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-the-descendants-of-a-group -->
-    <div class="flex flex-col group/feed">
-      {projects.map((project) => (
-        <a
-          href={project.url}
-          class="group/row flex items-start py-4 border-b border-border/40 no-underline transition-all duration-200 hover:border-primary/40 group-hover/feed:opacity-40 hover:!opacity-100"
-        >
-          <span class="font-mono text-sm text-muted-foreground w-16 pt-0.5 shrink-0">
-            {project.frontmatter.year}
-          </span>
-          <div class="flex-1 min-w-0 pr-4">
-            <span class="text-sm font-medium text-foreground transition-colors duration-150 group-hover/row:text-primary">
-              {project.frontmatter.title}
+    <div class="group/feed flex flex-col">
+      {
+        projects.map((project) => (
+          <a
+            href={project.url}
+            class="group/row flex items-start border-b border-border/40 py-4 no-underline transition-all duration-200 group-hover/feed:opacity-40 hover:border-primary/40 hover:!opacity-100"
+          >
+            <span class="w-16 shrink-0 pt-0.5 font-mono text-sm text-muted-foreground">
+              {project.frontmatter.year}
             </span>
-            <p class="text-xs text-muted-foreground font-light mt-1 leading-relaxed">
-              {project.frontmatter.snippet}
-            </p>
-          </div>
-          <ArrowUpRight size={16} className="text-muted-foreground opacity-40 duration-150 group-hover/row:translate-x-1 group-hover/row:-translate-y-1 group-hover/row:opacity-100 group-hover/row:text-primary" />
-        </a>
-      ))}
+            <div class="min-w-0 flex-1 pr-4">
+              <span class="text-sm font-medium text-foreground transition-colors duration-150 group-hover/row:text-primary">
+                {project.frontmatter.title}
+              </span>
+              <p class="mt-1 text-xs leading-relaxed font-light text-muted-foreground">
+                {project.frontmatter.snippet}
+              </p>
+            </div>
+            <ArrowUpRight
+              size={16}
+              className="text-muted-foreground opacity-40 duration-150 group-hover/row:translate-x-1 group-hover/row:-translate-y-1 group-hover/row:opacity-100 group-hover/row:text-primary"
+            />
+          </a>
+        ))
+      }
     </div>
   </section>
 </Layout>
