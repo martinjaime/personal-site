@@ -5,6 +5,7 @@
 @import "@tabler/icons-webfont/dist/tabler-icons.min.css";
 
 @theme inline {
+    --breakpoint-xs: 30rem;
     --font-heading: var(--font-mono);
     --font-mono: 'JetBrains Mono Variable', monospace;
     --color-sidebar-ring: var(--sidebar-ring);
@@ -52,7 +53,7 @@
   filter: invert(0);
   border: 1px solid var(--foreground);
   border-radius: var(--radius-sm);
-  @apply sm:border-0 sm:aspect-[619/144];
+  @apply xs:border-0 xs:aspect-[619/144];
 }
 
 .woodpecker-footer::after {
@@ -67,7 +68,7 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
-  @apply max-sm:bg-[url('/woodpecker-banner-mobile.png')] sm:bg-[url('/woodpecker-banner-transparent.png')] sm:border-0;
+  @apply bg-[url('/woodpecker-banner-mobile.png')] xs:bg-[url('/woodpecker-banner-transparent.png')] xs:border-0;
 }
 
 .post-content {
@@ -85,7 +86,6 @@
 }
 
 :root {
-    /* stone greige background + warm neutrals (hue ~90) */
     --background: oklch(0.973 0.005 90);
     --foreground: oklch(0.24 0.006 90);
     --card: oklch(0.99 0.003 90);
