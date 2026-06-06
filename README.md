@@ -1,36 +1,11 @@
-# Astro + React + TypeScript + shadcn/ui
+# Personal Website
 
-This is a template for a new Astro project with React, TypeScript, and shadcn/ui.
+This is a static website bootstrapped by Astro. Also uses tailwind, React, and
+Typescript.
 
-## Adding components
-
-To add components to your app, run the following command:
-
-```bash
-npx shadcn@latest add button
-```
-
-This will place the ui components in the `src/components` directory.
-
-## Using components
-
-To use the components in your app, import them in an `.astro` file:
-
-```astro
----
-import { Button } from "@/components/ui/button"
----
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Astro App</title>
-  </head>
-  <body>
-    <div class="grid h-screen place-items-center content-center">
-      <Button>Button</Button>
-    </div>
-  </body>
-</html>
+```sh
+# run locally
+npm run dev # --host to listen on all adresses
+# preview a build
+npm run build && npm run preview
 ```
