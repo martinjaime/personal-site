@@ -6,41 +6,56 @@ layout: ../../layouts/project.astro
 state: draft
 ---
 
-## Wishvaults
+# Wishvaults
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac lorem in
-dolor molestie scelerisque eu ac lectus. Aenean nec bibendum dui. Sed vitae
-neque a ligula dictum efficitur in nec lectus. Vivamus tellus purus, varius eget
-dapibus quis, accumsan at diam. Nunc non porttitor mauris. Ut sit amet orci non
-nunc ullamcorper lobortis. Sed dapibus porttitor elit sit amet auctor.
+Almost every year, whether it's around a birthday or Christmas time, among my
+family and friends, we end up asking each other what we want as gifts. And since
+some of us are either terrible at gift-giving or are hard to shop for, a
+wishlist tends to be a regular solution. We often ended up sharing Amazon
+wishlists or using wishlist apps like Elfster. Personally, I am trying to avoid
+Amazon as much as practically possible. And while popular wishlist services can
+be convenient, they tend to be clunky and feature bloated while also mining for
+our data. This motivated me to build something for my friends and especially my
+family to use that is simple, private, and focused on the core intention.
 
-Duis tortor ipsum, varius ornare diam in, laoreet dignissim ipsum. Cras ultrices
-elit augue, et fermentum nibh iaculis vitae. Donec sodales fermentum orci non
-finibus. Donec luctus at sapien ut mollis. Phasellus molestie convallis
-hendrerit. Curabitur odio metus, suscipit quis justo eget, lobortis consectetur
-augue. Cras pharetra metus in risus hendrerit elementum. Sed tempus tempus
-mollis. Phasellus eget lectus ante. Duis et fringilla sapien.
+Then, the biggest hurtle and annoyance I find when wanting to try a new service
+is the sign up process.
 
-Nulla vitae lacus ac mi convallis pharetra. Curabitur sit amet metus diam. Proin
-dignissim velit nunc, quis accumsan neque tempus a. Sed porta magna in auctor
-dapibus. Integer vitae massa et erat posuere malesuada in eget nulla. Morbi
-vitae felis sem. Vestibulum posuere tortor ac sollicitudin consectetur.
-Phasellus et est tellus. Lorem ipsum dolor sit amet, consectetur adipiscing
-elit.
+## Goal
 
-Duis sit amet sodales magna, et pretium ipsum. Suspendisse ultrices elit vel
-nunc ornare tempor. Donec eget tristique neque, sed tincidunt arcu. Ut suscipit
-orci magna, eget scelerisque lacus auctor at. Aenean et quam ac magna
-ullamcorper faucibus. Sed at vulputate nulla. Vivamus sed facilisis justo. Etiam
-accumsan massa quis dignissim sagittis. Mauris mattis mollis turpis in viverra.
-Vivamus ultricies pellentesque lacus, eget dictum velit dapibus eget. Etiam ut
-arcu eu ipsum viverra venenatis vel quis massa. Phasellus fringilla lectus a
-mauris posuere, non hendrerit velit pharetra. Donec varius massa vel hendrerit
-feugiat.
+The goal of the app is to be intentionally minimal and simple. The main focus is
+on the wishlist itself, with a clean and intuitive interface. It should be
+simple enough to not require accounts. I would be the sole developer and
+maintainer of the service, and I wouln't intend to sell the data. Monetization
+of some sort would be nice, but not at the cost of user privacy.
 
-Sed mauris lorem, viverra eu lacus non, posuere tincidunt nisi. Aliquam luctus
-augue vel massa ornare, in auctor leo ornare. Pellentesque habitant morbi
-tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
-enim magna. Fusce non mauris lectus. Vivamus eleifend in nisi vitae aliquet.
-Vivamus ornare purus non fringilla pharetra. Nulla vel eleifend nisi.
+## Tech Stack
+
+I started developing this in mid 2025, and I wanted to finish it by November of
+the same year in time for the holiday season. So speed of development was a key
+factor. However, I did not want to miss a learning opportunity.
+
+### Backend
+
+For the backend, I chose Scala since it was the language I had been working on
+for the past few years and I wanted to continue improving my skills in it. Also,
+while I had been using Typelevel libraries for a while, I had not yet built a
+full application with them, so I chose cats-effect, http4s, doobie, and circe
+for the backend. I also used Postgres as the database since I am familiar with
+it and it is a reasonable choice for the relational data models of this
+application. I had used Flyway years ago for database migrations and I have so
+far preferred its simplicity and straightforwardness over other more complex
+tools I had been using in professional settings.
+
+### Frontend
+
+I wanted to use this side of the application to refresh my frontend skills after
+performing poorly in a job interview that had a heavy frontend component and I
+approached it with a little too much confidence. Gatsby would be the framework
+to build with to get a static site with good performance and SEO just in case I
+wanted to make the app public. For styling, I went with styled-components for
+the sake of experiencing "plain CSS". I had been using Tailwind in the past and
+it did feel as if my CSS skills had been getting a little rusty.
+
+### Authentication
 
