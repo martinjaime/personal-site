@@ -3,59 +3,88 @@ title: "Wishvaults"
 year: "2025"
 snippet: "A minimalist, privacy-focused wishlist application with anonymous authentication mechanics."
 layout: ../../layouts/project.astro
-state: draft
+state: published
 ---
 
 # Wishvaults
 
-Almost every year, whether it's around a birthday or Christmas time, among my
-family and friends, we end up asking each other what we want as gifts. And since
-some of us are either terrible at gift-giving or are hard to shop for, a
-wishlist tends to be a regular solution. We often ended up sharing Amazon
-wishlists or using wishlist apps like Elfster. Personally, I am trying to avoid
-Amazon as much as practically possible. And while popular wishlist services can
-be convenient, they tend to be clunky and feature bloated while also mining for
-our data. This motivated me to build something for my friends and especially my
-family to use that is simple, private, and focused on the core intention.
+<img
+  src="/wishvaults-screenshot.jpg"
+  alt="Screenshot of the Wishvaults home page"
+  class="mb-4 rounded-lg shadow-lg"
+/>
 
-Then, the biggest hurtle and annoyance I find when wanting to try a new service
-is the sign up process.
+Almost every year around birthdays and Christmas, my friends and family end up
+asking each other what we want. We usually fall back to Amazon lists, random
+notes, or apps like Elfster. That always felt clunky and feature-bloated. And I
+hated that I would need to share my data with every new service.
+
+This motivated me to build something just for my friends and family that is
+simple and focused on the core intention: to create and share a wishlist.
 
 ## Goal
 
-The goal of the app is to be intentionally minimal and simple. The main focus is
-on the wishlist itself, with a clean and intuitive interface. It should be
-simple enough to not require accounts. I would be the sole developer and
-maintainer of the service, and I wouln't intend to sell the data. Monetization
-of some sort would be nice, but not at the cost of user privacy.
+My goal was to build something intentionally minimal, private, and simple to
+use while removing the friction of traditional email-based accounts:
 
-## Tech Stack
+- low-friction (no accounts needed)
+- simple sharing (just a link)
+- respect privacy (no data mining)
+- minimalist UI
 
-I started developing this in mid 2025, and I wanted to finish it by November of
-the same year in time for the holiday season. So speed of development was a key
-factor. However, I did not want to miss a learning opportunity.
+Monetization of some sort would be nice (Wishful thinking), but not at the cost
+of user privacy.
+
+## Full Stack Overview
+
+Wishvaults is full stack, with a backend-heavy architecture and a deliberately
+simple frontend. This was also a learning project for building a complete Scala
+service with Typelevel libraries end-to-end, not just isolated components; and
+to refresh my frontend skills.
 
 ### Backend
 
-For the backend, I chose Scala since it was the language I had been working on
-for the past few years and I wanted to continue improving my skills in it. Also,
-while I had been using Typelevel libraries for a while, I had not yet built a
-full application with them, so I chose cats-effect, http4s, doobie, and circe
-for the backend. I also used Postgres as the database since I am familiar with
-it and it is a reasonable choice for the relational data models of this
-application. I had used Flyway years ago for database migrations and I have so
-far preferred its simplicity and straightforwardness over other more complex
-tools I had been using in professional settings.
+- Scala 3
+- Typelevel libraries: cats-effect, http4s, doobie, circe
+- PostgreSQL - model+store relational wishlist records
+- Flyway: DB migrations
+- JWT auth and bcrypt password hashing
+- Docker and Docker Compose for local/dev deployment
+
+The core backend capabilities include:
+
+- create password-protected wishlists without forcing traditional accounts
+- authenticate to perform edit operations
+- track wish state (pending or granted)
 
 ### Frontend
 
-I wanted to use this side of the application to refresh my frontend skills after
-performing poorly in a job interview that had a heavy frontend component and I
-approached it with a little too much confidence. Gatsby would be the framework
-to build with to get a static site with good performance and SEO just in case I
-wanted to make the app public. For styling, I went with styled-components for
-the sake of experiencing "plain CSS". I had been using Tailwind in the past and
-it did feel as if my CSS skills had been getting a little rusty.
+The frontend lives in a separate repository.
 
-### Authentication
+It is intentionally simple: clean layout, minimal visual noise, and
+straightforward flows that keep the wishlist itself front and center. I wanted
+the UI to feel light and obvious, not overloaded.
+
+## Result
+
+Wishvaults is a working full stack app living at
+[wishvaults.com](https://wishvaults.com).
+
+The frontend is deployed on Vercel. It provides a fairly simple interface to
+connect a repository, and deploy on commit. The backend was first deployed to
+Render on the free tier. This meant that very often, visitors would encounter a
+cold start. This means that to get around it, the web app needed to be aware of
+the backend state (up/down) to block form submissions until the backend was up.
+To go one step further, I added a simple ping on app load to trigger the backend
+to wake up if it was down.
+
+Ultimately, I moved the backend to a self hosted environment on my [home
+kubernetes cluster](/projects/self-host) and put it behind a Cloudflare tunnel.
+
+## Future Work
+
+- optional email-based recovery for people who want it
+- stronger abuse prevention around public/custom URLs
+- tighter authorization boundaries and expanded test coverage
+- analytics that are privacy-preserving and strictly operational
 
