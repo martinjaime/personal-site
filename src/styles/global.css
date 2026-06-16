@@ -74,14 +74,35 @@
 .post-content {
   @apply text-sm font-light text-muted-foreground leading-loose max-w-[80ch];
 
+  h1 {
+    @apply text-4xl mb-4 border-b-2 border-muted pb-2;
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
   h2 {
     @apply text-3xl mb-4;
-    font-weight: 600;
+    font-weight: 400;
+    color: var(--foreground);
+  }
+
+  h3 {
+    @apply text-2xl mb-4;
+    font-weight: 300;
     color: var(--foreground);
   }
 
   p {
     @apply mb-4;
+  }
+
+  ul {
+    @apply mb-4 list-disc;
+    padding-left: 1.5rem;
+  }
+
+  ul ul {
+    margin-bottom: 0;
   }
 }
 

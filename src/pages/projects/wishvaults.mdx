@@ -3,44 +3,86 @@ title: "Wishvaults"
 year: "2025"
 snippet: "A minimalist, privacy-focused wishlist application with anonymous authentication mechanics."
 layout: ../../layouts/project.astro
-state: draft
+state: published
 ---
 
-## Wishvaults
+# Wishvaults
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac lorem in
-dolor molestie scelerisque eu ac lectus. Aenean nec bibendum dui. Sed vitae
-neque a ligula dictum efficitur in nec lectus. Vivamus tellus purus, varius eget
-dapibus quis, accumsan at diam. Nunc non porttitor mauris. Ut sit amet orci non
-nunc ullamcorper lobortis. Sed dapibus porttitor elit sit amet auctor.
+<img
+  src="/wishvaults-screenshot.jpg"
+  alt="Screenshot of the Wishvaults home page"
+  class="mb-4 rounded-lg shadow-lg"
+/>
 
-Duis tortor ipsum, varius ornare diam in, laoreet dignissim ipsum. Cras ultrices
-elit augue, et fermentum nibh iaculis vitae. Donec sodales fermentum orci non
-finibus. Donec luctus at sapien ut mollis. Phasellus molestie convallis
-hendrerit. Curabitur odio metus, suscipit quis justo eget, lobortis consectetur
-augue. Cras pharetra metus in risus hendrerit elementum. Sed tempus tempus
-mollis. Phasellus eget lectus ante. Duis et fringilla sapien.
+Almost every year around birthdays and Christmas, my friends and family end up
+asking each other what we want. We usually fall back to Amazon lists, random
+notes, or apps like Elfster. These always felt clunky and feature-bloated and I
+hated that I would need to share my data with every new service.
 
-Nulla vitae lacus ac mi convallis pharetra. Curabitur sit amet metus diam. Proin
-dignissim velit nunc, quis accumsan neque tempus a. Sed porta magna in auctor
-dapibus. Integer vitae massa et erat posuere malesuada in eget nulla. Morbi
-vitae felis sem. Vestibulum posuere tortor ac sollicitudin consectetur.
-Phasellus et est tellus. Lorem ipsum dolor sit amet, consectetur adipiscing
-elit.
+This motivated me to build something just for my friends and family that is
+simple and focused on the core intention: to create and share a wishlist.
 
-Duis sit amet sodales magna, et pretium ipsum. Suspendisse ultrices elit vel
-nunc ornare tempor. Donec eget tristique neque, sed tincidunt arcu. Ut suscipit
-orci magna, eget scelerisque lacus auctor at. Aenean et quam ac magna
-ullamcorper faucibus. Sed at vulputate nulla. Vivamus sed facilisis justo. Etiam
-accumsan massa quis dignissim sagittis. Mauris mattis mollis turpis in viverra.
-Vivamus ultricies pellentesque lacus, eget dictum velit dapibus eget. Etiam ut
-arcu eu ipsum viverra venenatis vel quis massa. Phasellus fringilla lectus a
-mauris posuere, non hendrerit velit pharetra. Donec varius massa vel hendrerit
-feugiat.
+## Goal
 
-Sed mauris lorem, viverra eu lacus non, posuere tincidunt nisi. Aliquam luctus
-augue vel massa ornare, in auctor leo ornare. Pellentesque habitant morbi
-tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
-enim magna. Fusce non mauris lectus. Vivamus eleifend in nisi vitae aliquet.
-Vivamus ornare purus non fringilla pharetra. Nulla vel eleifend nisi.
+My goal was to build something intentionally minimal, private, and simple to
+use while removing the friction of traditional email-based accounts:
 
+- low-friction (no accounts needed)
+- simple sharing (just a link)
+- respect privacy (no data mining)
+- minimalist UI
+
+Monetization of some sort would be nice (wishful thinking), but not at the cost
+of user privacy.
+
+## Full Stack Overview
+
+Wishvaults is full stack, with a backend-heavy architecture and a deliberately
+simple frontend. This was also a learning project for building a complete Scala
+service with Typelevel libraries end-to-end, not just isolated components, and
+to refresh my frontend skills.
+
+### Backend
+
+- Scala 3
+- Typelevel libraries: cats-effect, http4s, doobie, circe
+- PostgreSQL - model+store relational wishlist records
+- Flyway: DB migrations
+- JWT auth and bcrypt password hashing
+- Docker and Docker Compose for local/dev deployment
+
+The core backend capabilities include:
+
+- create password-protected wishlists without forcing traditional accounts
+- authenticate to perform edit operations
+- track wish state (pending or granted)
+
+### Frontend
+
+The frontend lives in a separate repository.
+
+It is intentionally simple: clean layout, minimal visual noise, and
+straightforward flows that keep the wishlist itself front and center. I wanted
+the UI to feel light and obvious, not overloaded.
+
+## Result
+
+Wishvaults is a working full stack app living at
+[wishvaults.com](https://wishvaults.com).
+
+The frontend is deployed on Vercel. It provides a fairly simple interface to
+connect a repository, and deploy on commit. The backend was first deployed to
+Render on the free tier. This meant that very often, visitors would encounter a
+cold start. To get around it, the web app needed to be aware of the backend
+state (up/down) to block form submissions until the backend was up. To go one
+step further, I added a simple ping on app load to trigger the backend to wake
+up if it was down.
+
+Ultimately, I moved the backend to a self hosted environment on my [home
+kubernetes cluster](/projects/self-host) and put it behind a Cloudflare tunnel.
+
+## Future Work
+
+- optional email-based recovery for people who want it
+- stronger abuse prevention around public/custom URLs
+- tighter authorization boundaries and expanded test coverage
