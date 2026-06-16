@@ -16,7 +16,7 @@ state: published
 
 Almost every year around birthdays and Christmas, my friends and family end up
 asking each other what we want. We usually fall back to Amazon lists, random
-notes, or apps like Elfster. That always felt clunky and feature-bloated. And I
+notes, or apps like Elfster. These always felt clunky and feature-bloated and I
 hated that I would need to share my data with every new service.
 
 This motivated me to build something just for my friends and family that is
@@ -32,14 +32,14 @@ use while removing the friction of traditional email-based accounts:
 - respect privacy (no data mining)
 - minimalist UI
 
-Monetization of some sort would be nice (Wishful thinking), but not at the cost
+Monetization of some sort would be nice (wishful thinking), but not at the cost
 of user privacy.
 
 ## Full Stack Overview
 
 Wishvaults is full stack, with a backend-heavy architecture and a deliberately
 simple frontend. This was also a learning project for building a complete Scala
-service with Typelevel libraries end-to-end, not just isolated components; and
+service with Typelevel libraries end-to-end, not just isolated components, and
 to refresh my frontend skills.
 
 ### Backend
@@ -73,10 +73,10 @@ Wishvaults is a working full stack app living at
 The frontend is deployed on Vercel. It provides a fairly simple interface to
 connect a repository, and deploy on commit. The backend was first deployed to
 Render on the free tier. This meant that very often, visitors would encounter a
-cold start. This means that to get around it, the web app needed to be aware of
-the backend state (up/down) to block form submissions until the backend was up.
-To go one step further, I added a simple ping on app load to trigger the backend
-to wake up if it was down.
+cold start. To get around it, the web app needed to be aware of the backend
+state (up/down) to block form submissions until the backend was up. To go one
+step further, I added a simple ping on app load to trigger the backend to wake
+up if it was down.
 
 Ultimately, I moved the backend to a self hosted environment on my [home
 kubernetes cluster](/projects/self-host) and put it behind a Cloudflare tunnel.
@@ -86,5 +86,3 @@ kubernetes cluster](/projects/self-host) and put it behind a Cloudflare tunnel.
 - optional email-based recovery for people who want it
 - stronger abuse prevention around public/custom URLs
 - tighter authorization boundaries and expanded test coverage
-- analytics that are privacy-preserving and strictly operational
-
