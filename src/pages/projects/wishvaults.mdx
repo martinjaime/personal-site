@@ -8,19 +8,25 @@ state: published
 
 # Wishvaults
 
-<img
-  src="/wishvaults-screenshot.jpg"
-  alt="Screenshot of the Wishvaults home page"
-  class="mb-4 rounded-lg shadow-lg"
-/>
+<div class="flex flex-col gap-4">
+  <div>
+    Every year around birthdays and Christmas, my friends and family end
+    up asking each other what we want. We usually fall back to Amazon lists,
+    random notes, or apps like Elfster. These always felt clunky and
+    feature-bloated and I hated that I would need to share my data with every
+    new service.
 
-Almost every year around birthdays and Christmas, my friends and family end up
-asking each other what we want. We usually fall back to Amazon lists, random
-notes, or apps like Elfster. These always felt clunky and feature-bloated and I
-hated that I would need to share my data with every new service.
+    This motivated me to build something that is simple and focused on the core
+    intention: to create and share a wishlist.
+  </div>
 
-This motivated me to build something just for my friends and family that is
-simple and focused on the core intention: to create and share a wishlist.
+{/* a centered image */}
+  <img
+    src="/wishvaults-demo.gif"
+    alt="Demo gif of the Wishvaults flow from creating to updating a wishlist"
+    class="mb-4 max-w-sm border border-border shadow-sm mx-auto"
+  />
+</div>
 
 ## Goal
 
@@ -38,9 +44,9 @@ of user privacy.
 ## Full Stack Overview
 
 Wishvaults is full stack, with a backend-heavy architecture and a deliberately
-simple frontend. This was also a learning project for building a complete Scala
-service with Typelevel libraries end-to-end, not just isolated components, and
-to refresh my frontend skills.
+simple frontend. This was also a learning project as an opportunity to build a
+complete Scala service with Typelevel libraries, rather than contributing to
+pieces of a larger codebase.
 
 ### Backend
 
