@@ -12,4 +12,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [react(), mdx()],
+  redirects: {
+    '/wishlist': 'https://wishvaults.com/list/martin',
+  }
 })

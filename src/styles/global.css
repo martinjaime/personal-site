@@ -104,6 +104,10 @@
   ul ul {
     margin-bottom: 0;
   }
+
+  a {
+    @apply underline text-primary;
+  }
 }
 
 :root {
