@@ -12,19 +12,21 @@ state: published
 
 # Self-Hosted K8s with K3s
 
-The current state of this project is a two node cluster that hosts
+The current state of this project is a two node cluster that exposes all
+services with a reverse proxy that is only accessible from the home network, and
+another reverse proxy that has ingress controllers only to a few selected
+services. Some (but not all) of the services running on the cluster:
 
-- Media services
-  - **Immich**
-  - **Jellyfin**
-- Databases
-  - **PostgresQL** - personal projects and other services that need it
-  - **CouchDB** - sync Obsidian notes across devices
-- **Projects** - in a `projects` namespace
-  - [Wishvaults](https://wishvaults.com) backend
+- **Immich** - all my photos migrated from Google Photos
+- **Jellyfin** - movies and TV shows
+- **Projects** - exposed through cloudflared tunnel
+- **Authelia** - identity provider with OICD and 2FA for publically exposed
+  services
 - **Forgejo** - git hosting, docker registry, and CI/CD
 
 <img class="forgeground my-4 max-w-md mx-auto" src="/architecture.svg" />
+
+Not illustrated above, is an NFS hosted on the control node.
 
 ## Motivation
 
@@ -36,15 +38,15 @@ self hosted CI/CD.
 
 ## Journey and AI Handholding
 
-I wasn't unfamiliar with the ecosystem, so I had a general idea of what I
-needed. I used Claude to guide me through the initial setup that led me to what
-I have today. It allowed me to get moving quickly and to work along with it and
-the documentation from k3s and k8s. After a couple of weeks of tinkering, I reached a
-point where I was able to catch hallucinations from the LLM and redirect it
-in the correct direction after verifying with documentation.
+I wasn't unfamiliar with the ecosystem, so I had a general idea of what I needed
+and wanted. I used Claude to guide me through the initial setup that led me to
+what I have today. It allowed me to get moving quickly and to work along with it
+and the documentation from k3s and k8s. After a couple of weeks of tinkering, I
+reached a point where I was able to catch hallucinations from the LLM and
+redirect it after verifying with documentation.
 
 As I continued to work on this project, I began to gain confidence to become
-more and more less reliant on help from the LLM.
+increasingly less reliant on help from the LLM.
 
 ## Hardware
 
@@ -53,8 +55,12 @@ by one and replaced them with two Thinkcentre Tiny PCs that are tucked away in
 the living room media cabinet.
 
 - 2x Thinkcentre Tiny PCs
-- 1x Raspberry Pi 4 - as a Wireguard VPN gateway
+- 1x Raspberry Pi 4
+- as a Wireguard VPN gateway
 - A network switch
-- 2 external hard drives connected to master node
+- 2 external hard drives connected to control node
+
+I would love to have a dedicated NAS, but I'm not willing to pay today's storage
+market prices.
 
 ## CI/CD Pipelines
