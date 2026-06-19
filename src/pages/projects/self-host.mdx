@@ -3,44 +3,58 @@ title: "K3s at Home"
 year: "2026"
 snippet: "We have Kubernetes at home! Locally deployed on bare metal with CI/CD pipelines, automated backups, and external access."
 layout: ../../layouts/project.astro
-state: draft
+state: published
 ---
 
-## K3s Home Cluster
+> "Mom, can we have cloud hosting?" <br/>
+> "We have cloud hosting at home." <br/>
+> The cloud hosting: <br/>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac lorem in
-dolor molestie scelerisque eu ac lectus. Aenean nec bibendum dui. Sed vitae
-neque a ligula dictum efficitur in nec lectus. Vivamus tellus purus, varius eget
-dapibus quis, accumsan at diam. Nunc non porttitor mauris. Ut sit amet orci non
-nunc ullamcorper lobortis. Sed dapibus porttitor elit sit amet auctor.
+# Self-Hosted K8s with K3s
 
-Duis tortor ipsum, varius ornare diam in, laoreet dignissim ipsum. Cras ultrices
-elit augue, et fermentum nibh iaculis vitae. Donec sodales fermentum orci non
-finibus. Donec luctus at sapien ut mollis. Phasellus molestie convallis
-hendrerit. Curabitur odio metus, suscipit quis justo eget, lobortis consectetur
-augue. Cras pharetra metus in risus hendrerit elementum. Sed tempus tempus
-mollis. Phasellus eget lectus ante. Duis et fringilla sapien.
+The current state of this project is a two node cluster that hosts
 
-Nulla vitae lacus ac mi convallis pharetra. Curabitur sit amet metus diam. Proin
-dignissim velit nunc, quis accumsan neque tempus a. Sed porta magna in auctor
-dapibus. Integer vitae massa et erat posuere malesuada in eget nulla. Morbi
-vitae felis sem. Vestibulum posuere tortor ac sollicitudin consectetur.
-Phasellus et est tellus. Lorem ipsum dolor sit amet, consectetur adipiscing
-elit.
+- Media services
+  - **Immich**
+  - **Jellyfin**
+- Databases
+  - **PostgresQL** - personal projects and other services that need it
+  - **CouchDB** - sync Obsidian notes across devices
+- **Projects** - in a `projects` namespace
+  - [Wishvaults](https://wishvaults.com) backend
+- **Forgejo** - git hosting, docker registry, and CI/CD
 
-Duis sit amet sodales magna, et pretium ipsum. Suspendisse ultrices elit vel
-nunc ornare tempor. Donec eget tristique neque, sed tincidunt arcu. Ut suscipit
-orci magna, eget scelerisque lacus auctor at. Aenean et quam ac magna
-ullamcorper faucibus. Sed at vulputate nulla. Vivamus sed facilisis justo. Etiam
-accumsan massa quis dignissim sagittis. Mauris mattis mollis turpis in viverra.
-Vivamus ultricies pellentesque lacus, eget dictum velit dapibus eget. Etiam ut
-arcu eu ipsum viverra venenatis vel quis massa. Phasellus fringilla lectus a
-mauris posuere, non hendrerit velit pharetra. Donec varius massa vel hendrerit
-feugiat.
+<img class="forgeground my-4 max-w-md mx-auto" src="/architecture.svg" />
 
-Sed mauris lorem, viverra eu lacus non, posuere tincidunt nisi. Aliquam luctus
-augue vel massa ornare, in auctor leo ornare. Pellentesque habitant morbi
-tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
-enim magna. Fusce non mauris lectus. Vivamus eleifend in nisi vitae aliquet.
-Vivamus ornare purus non fringilla pharetra. Nulla vel eleifend nisi.
+## Motivation
 
+From the very beginning, the motivation for this project was to fill a hole in
+my skills. It was meant to be a generally fun learning project to practice
+orchestrating containers with Kubernetes, but it later evolved into an ongoing
+hobby to take ownership of my data and to deploy and manage my own services with
+self hosted CI/CD.
+
+## Journey and AI Handholding
+
+I wasn't unfamiliar with the ecosystem, so I had a general idea of what I
+needed. I used Claude to guide me through the initial setup that led me to what
+I have today. It allowed me to get moving quickly and to work along with it and
+the documentation from k3s and k8s. After a couple of weeks of tinkering, I reached a
+point where I was able to catch hallucinations from the LLM and redirect it
+in the correct direction after verifying with documentation.
+
+As I continued to work on this project, I began to gain confidence to become
+more and more less reliant on help from the LLM.
+
+## Hardware
+
+Originally, I only used two raspberry pi 4s. But today, I have removed them one
+by one and replaced them with two Thinkcentre Tiny PCs that are tucked away in
+the living room media cabinet.
+
+- 2x Thinkcentre Tiny PCs
+- 1x Raspberry Pi 4 - as a Wireguard VPN gateway
+- A network switch
+- 2 external hard drives connected to master node
+
+## CI/CD Pipelines
