@@ -24,29 +24,15 @@ services. Some (but not all) of the services running on the cluster:
   services
 - **Forgejo** - git hosting, docker registry, and CI/CD
 
-<img class="forgeground my-4 max-w-md mx-auto" src="/architecture.svg" />
-
-Not illustrated above, is an NFS hosted on the control node.
-
 ## Motivation
 
 From the very beginning, the motivation for this project was to fill a hole in
 my skills. It was meant to be a generally fun learning project to practice
 orchestrating containers with Kubernetes, but it later evolved into an ongoing
 hobby to take ownership of my data and to deploy and manage my own services with
-self hosted CI/CD.
-
-## Journey and AI Handholding
-
-I wasn't unfamiliar with the ecosystem, so I had a general idea of what I needed
-and wanted. I used Claude to guide me through the initial setup that led me to
-what I have today. It allowed me to get moving quickly and to work along with it
-and the documentation from k3s and k8s. After a couple of weeks of tinkering, I
-reached a point where I was able to catch hallucinations from the LLM and
-redirect it after verifying with documentation.
-
-As I continued to work on this project, I began to gain confidence to become
-increasingly less reliant on help from the LLM.
+self hosted CI/CD. Minimally, the short term goal was to expose Immich to be
+able to fully replace Google Photos and to stream Jellyfin to family. Any
+service I used should be reachable at a convenient domain name.
 
 ## Hardware
 
@@ -62,5 +48,43 @@ the living room media cabinet.
 
 I would love to have a dedicated NAS, but I'm not willing to pay today's storage
 market prices.
+
+## Architecture and Networking
+
+To achieve my most basic goals, I came up with the following architecture. The
+entrypoints are two reverse proxies reachable at different IPs in the home
+network. A pihole DNS routes all internal traffic that is trying to reach
+*.mydomain.com through one reverse proxy with ingress controllers for all apps.
+A second reverse proxy has ingress controllers for a few select apps that I
+choose to expose. This second public proxy is what is listening on an open port
+to the public internet. I do own mydomain.com (to be clear, not actually
+mydomain.com), so I have a public DNS record that points to my home IP where the
+public reverse proxy is listening.
+
+<img class="forgeground my-4 max-w-md mx-auto" src="/architecture.svg" />
+
+Not illustrated above:
+- is an NFS hosted on the control node.
+- cloudflare tunnel to expose personal projects
+
+## Security
+
+From the very beginning, security was my biggest concern since opening ports was
+a requirement. Initially I opted to simply expose Immich with Authelia as an
+OICD provider on immich.mydomain.com. And while I wanted to trust authelia to
+keep my data secure, the multiple probing requests I would see on nginx logs
+made me feel uneasy.
+
+## Journey and AI Usage
+
+I wasn't unfamiliar with the ecosystem, so I had a general idea of what I needed
+and wanted. I used Claude to guide me through the initial setup that led me to
+what I have today. It allowed me to get moving quickly and to work along with it
+and the documentation from k3s and k8s. After a couple of weeks of tinkering, I
+reached a point where I was able to catch hallucinations from the LLM and
+redirect it after verifying with documentation.
+
+As I continued to work on this project, I began to gain confidence to become
+increasingly less reliant on help from the LLM.
 
 ## CI/CD Pipelines
