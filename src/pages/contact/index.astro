@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea.tsx"
 import { Field, FieldLabel } from "@/components/ui/field.tsx"
 
 // get hostname for redirect
-const hostname = typeof window !== "undefined" ? window.location.hostname : "";
+const hostname = window ? window.location.hostname : "";
 
 ---
 
