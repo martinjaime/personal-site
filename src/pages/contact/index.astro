@@ -5,10 +5,6 @@ import { Button } from "@/components/ui/button.tsx"
 import { Input } from "@/components/ui/input.tsx"
 import { Textarea } from "@/components/ui/textarea.tsx"
 import { Field, FieldLabel } from "@/components/ui/field.tsx"
-
-// get hostname for redirect
-const hostname = Astro.url.hostname;
-
 ---
 
 <Layout>
@@ -19,7 +15,7 @@ const hostname = Astro.url.hostname;
 
       <input type="hidden" name="access_key" value={PUBLIC_CONTACT_FORM_ACCESS_KEY}>
       <input type="hidden" name="from_name" value="Personal Site Contact">
-      <input type="hidden" name="redirect" value={`https://${hostname}/contact/success`}>
+      <input type="hidden" name="redirect" value={`https://${window.location.hostname}/contact/success`}>
       <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
       <Field>
