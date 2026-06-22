@@ -36,6 +36,12 @@ const Nav: React.FC<NavProps> = ({ currentPath }) => {
               <NavigationMenuLink href="/">Home</NavigationMenuLink>
             </NavigationMenuItem>
           )}
+          {/* <NavigationMenuItem>
+            <NavigationMenuLink href="/about">About</NavigationMenuLink>
+          </NavigationMenuItem> */}
+          <NavigationMenuItem>
+            <NavigationMenuLink href="/contact">Say hi</NavigationMenuLink>
+          </NavigationMenuItem>
           <NavigationMenuItem className="relative">
             {/* weirdly enough, this component has a different font weight, so have to manually set it */}
             <NavigationMenuTrigger className="font-normal">
@@ -52,12 +58,6 @@ const Nav: React.FC<NavProps> = ({ currentPath }) => {
               ))}
             </NavigationMenuContent>
           </NavigationMenuItem>
-          {/* <NavigationMenuItem>
-            <NavigationMenuLink href="/about">About</NavigationMenuLink>
-          </NavigationMenuItem> */}
-          {/* <NavigationMenuItem>
-            <NavigationMenuLink href="/contact">Say hi</NavigationMenuLink>
-          </NavigationMenuItem> */}
         </NavigationMenuList>
       </NavigationMenu>
     </div>

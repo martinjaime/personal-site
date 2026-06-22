@@ -1,0 +1,51 @@
+---
+import { PUBLIC_CONTACT_FORM_ACCESS_KEY, PUBLIC_CF_SITE_KEY } from "astro:env/client";
+import Layout from "@/layouts/main.astro"
+import { Button } from "@/components/ui/button.tsx"
+import { Input } from "@/components/ui/input.tsx"
+import { Textarea } from "@/components/ui/textarea.tsx"
+import { Field, FieldLabel } from "@/components/ui/field.tsx"
+
+// get hostname for redirect
+const hostname = typeof window !== "undefined" ? window.location.hostname : "";
+
+---
+
+<Layout>
+  <div class="max-w-xl mx-auto py-10">
+    <h1 class="text-2xl font-bold mb-6">Say hi</h1>
+
+    <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-6">
+
+      <input type="hidden" name="access_key" value={PUBLIC_CONTACT_FORM_ACCESS_KEY}>
+      <input type="hidden" name="from_name" value="Personal Site Contact">
+      <input type="hidden" name="redirect" value={`https://${hostname}/contact/success`}>
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+      <Field>
+        <FieldLabel>Email</FieldLabel>
+        <Input type="email" name="email" required />
+      </Field>
+
+      <Field>
+        <FieldLabel>Name</FieldLabel>
+        <Input type="text" name="First Name" required />
+      </Field>
+
+      <Field>
+        <FieldLabel>Subject</FieldLabel>
+        <Input type="text" name="subject" required />
+      </Field>
+
+      <Field>
+        <FieldLabel>Message</FieldLabel>
+        <Textarea name="message" required className="min-h-32" />
+      </Field>
+
+      <div class="h-captcha" data-captcha="true"></div>
+
+      <Button type="submit" className="w-fit">Submit</Button>
+
+    </form>
+  </div>
+</Layout>
