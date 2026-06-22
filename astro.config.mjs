@@ -18,7 +18,7 @@ export default defineConfig({
   env: {
     schema: {
       PUBLIC_CONTACT_FORM_ACCESS_KEY: envField.string({ context: "client", access: "public", optional: false }),
-      // PUBLIC_CF_SITE_KEY: envField.string({ context: "client", access: "public", optional: false }),
+      PUBLIC_CF_SITE_KEY: envField.string({ context: "client", access: "public", optional: false }),
     }
   }
 })
