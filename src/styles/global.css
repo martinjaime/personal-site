@@ -108,6 +108,25 @@
   a {
     @apply underline text-primary;
   }
+
+  blockquote {
+    border-left: 2px solid var(--primary);
+    padding-left: 1rem;
+    color: var(--muted-foreground);
+    font-style: normal; /* override browser default italic */
+    margin-bottom: 3rem;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  code {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 3px;
+    background: var(--muted);
+    padding: 0.2rem 0.3rem;
+  }
 }
 
 :root {
