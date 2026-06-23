@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/main.astro"
+import ContactForm from "@/components/ContactForm.tsx"
+---
+
+<Layout>
+  <div class="max-w-xl mx-auto py-10">
+    <h1 class="text-2xl font-bold mb-6">Say hi</h1>
+    <ContactForm client:only="react" />
+  </div>
+</Layout>

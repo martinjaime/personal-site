@@ -4,3 +4,8 @@ export type ProjectFrontmatter = {
   snippet: string
   state: "draft" | "published" | "archived"
 }
+
+export type WorkerResponse = {
+  success: boolean
+  message?: string
+}
